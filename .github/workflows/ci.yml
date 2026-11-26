@@ -1,0 +1,34 @@
+name: PR01
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      COURSE_KIT_URL: https://ros.lms.ci.nsu.ru/downloads/robotics-course-kit-v1-w12-525e86f818ff.tar.gz
+      COURSE_KIT_SHA256: 525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download verified course kit
+        shell: bash
+        run: |
+          kit_archive=$(mktemp)
+          trap 'rm -f -- "$kit_archive"' EXIT
+          curl --fail --silent --show-error --location "$COURSE_KIT_URL" -o "$kit_archive"
+          printf '%s  %s\n' "$COURSE_KIT_SHA256" "$kit_archive" | sha256sum -c -
+          mkdir -p .course-kit
+          tar -xzf "$kit_archive" -C .course-kit
+
+      - name: Validate PR01 evidence
+        shell: bash
+        run: |
+          python3 -m json.tool evidence/pr01/environment.json > /dev/null
+          python3 -m json.tool evidence/pr01/report.json > /dev/null
+          python3 .course-kit/v1/tools/check_practice.py PR01 --submission .
