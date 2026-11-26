@@ -1,4 +1,4 @@
-name: PR02
+name: PR03
 
 on: [push, pull_request]
 
@@ -18,14 +18,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Build and verify turtle_bringup
+      - name: Build workspace and test patrol
         shell: bash
         run: |
           source /opt/ros/lyrical/setup.bash
-          colcon build --symlink-install --packages-select turtle_bringup
+          colcon build --symlink-install --packages-select turtle_bringup patrol
           source install/setup.bash
-          test -f "$(ros2 pkg prefix turtle_bringup)/share/turtle_bringup/launch/sim.launch.py"
-          python3 -m py_compile src/turtle_bringup/launch/sim.launch.py
+          colcon test --packages-select patrol --event-handlers console_direct+ --return-code-on-test-failure
+          colcon test-result --verbose
 
       - name: Download verified course kit
         shell: bash
@@ -37,8 +37,8 @@ jobs:
           mkdir -p .course-kit
           tar -xzf "$kit_archive" -C .course-kit
 
-      - name: Validate PR02 evidence
+      - name: Validate PR03 evidence
         shell: bash
         run: |
-          python3 -m json.tool evidence/pr02/report.json > /dev/null
-          python3 .course-kit/v1/tools/check_practice.py PR02 --submission .
+          python3 -m json.tool evidence/pr03/report.json > /dev/null
+          python3 .course-kit/v1/tools/check_practice.py PR03 --submission .
