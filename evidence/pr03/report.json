@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "practice_id": "PR03",
+  "commit": "d86475c1dea04ddfe12fbfa908e8c3af560bfeb1",
+  "course_kit": {
+    "version": "v1-w12",
+    "archive_sha256": "525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a"
+  },
+  "commands": [
+    "source /opt/ros/lyrical/setup.bash",
+    "colcon build --symlink-install --packages-select patrol",
+    "colcon build --symlink-install --packages-select turtle_bringup patrol",
+    "source install/setup.bash",
+    "ros2 pkg executables patrol",
+    "python3 -m pytest src/patrol/test",
+    "colcon test --packages-select patrol --event-handlers console_direct+ --return-code-on-test-failure",
+    "colcon test-result --verbose",
+    "ROS_DOMAIN_ID=16 ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST ros2 run patrol patrol",
+    "ros2 node list --no-daemon --spin-time 2",
+    "timeout 6s ros2 topic echo /cmd_vel geometry_msgs/msg/Twist --once",
+    "QT_QPA_PLATFORM=offscreen ros2 launch turtle_bringup sim.launch.py",
+    "ros2 topic type /turtle1/pose --no-daemon --spin-time 2",
+    "ros2 topic info /turtle1/pose --verbose --no-daemon --spin-time 2",
+    "ros2 topic info /cmd_vel --verbose --no-daemon --spin-time 2",
+    "ros2 topic info /turtle1/cmd_vel --verbose --no-daemon --spin-time 2",
+    "ros2 run patrol patrol --ros-args -r cmd_vel:=/turtle1/cmd_vel",
+    "timeout 6s ros2 topic echo /turtle1/cmd_vel geometry_msgs/msg/Twist --once",
+    "timeout --signal=INT 13s ros2 topic hz /turtle1/cmd_vel",
+    "timeout 6s ros2 topic echo /turtle1/pose turtlesim_msgs/msg/Pose --once"
+  ],
+  "tests": [
+    {
+      "name": "minimal_patrol",
+      "status": "passed",
+      "details": "Каркас собрался в отдельном workspace, /patrol появился и исчез после SIGINT."
+    },
+    {
+      "name": "package_build",
+      "status": "passed",
+      "details": "colcon собрал patrol и turtle_bringup, команда patrol найдена в install."
+    },
+    {
+      "name": "pure_command_selection",
+      "status": "passed",
+      "details": "Оба случая выбора Twist прошли через pytest и colcon test."
+    },
+    {
+      "name": "pose_and_timer",
+      "status": "passed",
+      "details": "До запуска turtlesim Twist нулевой, после первой позы linear.x = 0.5 и angular.z = 0.3."
+    },
+    {
+      "name": "relative_topic_defect",
+      "status": "passed",
+      "details": "На /cmd_vel один издатель и ноль подписчиков, поза одинакова в двух замерах."
+    },
+    {
+      "name": "remap_and_rate",
+      "status": "passed",
+      "details": "После remap один издатель и один подписчик, поза изменилась. Последнее среднее 10.000 Гц по 109 интервалам."
+    },
+    {
+      "name": "shutdown_timeout",
+      "status": "passed",
+      "details": "Через 2 с после SIGINT линейная и угловая скорости равны нулю, поза стабильна."
+    }
+  ],
+  "defect": {
+    "reproducer": "Запустить turtle_bringup и ros2 run patrol patrol без ROS remap. На /cmd_vel для издателя patrol нет подписчика, поза неизменна.",
+    "root_cause": "Относительное cmd_vel в корневом namespace разрешается в /cmd_vel, а turtlesim подписан на /turtle1/cmd_vel.",
+    "proof_after": "После ros2 run patrol patrol --ros-args -r cmd_vel:=/turtle1/cmd_vel граф показывает издателя patrol и подписчика turtlesim на /turtle1/cmd_vel, поза меняется и поток около 10 Гц."
+  },
+  "claims": {
+    "public_tests_passed": true,
+    "defect_reproduced": true,
+    "defect_fixed": true
+  },
+  "time": {
+    "contact_academic_hours": 2,
+    "self_study_hours": 2
+  },
+  "ai_used": true
+}
