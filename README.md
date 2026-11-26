@@ -1,84 +1,66 @@
-# ПР01. Окружение и граф ROS 2
+# ПР02. Пакет и запуск turtlesim
 
-В этой работе `turtlesim` публикует состояние черепахи, а `turtle_teleop_key` передаёт команды с клавиатуры. Опыт показывает, как проверить обмен сообщениями и что происходит, если узлы запущены в разных доменах DDS.
+Пакет `turtle_bringup` устанавливает `sim.launch.py`. Этот файл запускает один экземпляр `turtlesim`. Через CLI можно проверить, как полное имя топика влияет на доставку команды скорости.
 
-## Запуск
+## Сборка и запуск
 
-Откройте три Bash-терминала в одной среде. Для Ubuntu 26.04 и ROS 2 Lyrical в каждом выполните:
+Откройте Bash в корне репозитория и подключите базовую среду ROS 2. Для ROS 2 Jazzy используйте `/opt/ros/jazzy/setup.bash`.
 
 ```bash
 source /opt/ros/lyrical/setup.bash
+colcon build --symlink-install --packages-select turtle_bringup
+```
+
+В отдельном терминале из корня проекта подключите базовую среду и собранный workspace. Сначала остановите предыдущие экземпляры `turtlesim` и `teleop`. Подставьте свой `ROS_DOMAIN_ID`, если на занятии назначен другой номер.
+
+```bash
+source /opt/ros/lyrical/setup.bash
+source install/setup.bash
+export ROS_DOMAIN_ID=16
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-export ROS_DOMAIN_ID=16
+ros2 pkg prefix turtle_bringup
+ls "$(ros2 pkg prefix turtle_bringup)/share/turtle_bringup/launch"
+ros2 launch turtle_bringup sim.launch.py
 ```
 
-На Ubuntu 24.04 подключите `/opt/ros/jazzy/setup.bash`. Если на занятии выдана другая пара доменов, замените 16 и 17 во всех командах.
+Из другого терминала с той же средой и доменом проверьте появление `/turtlesim` через `ros2 node list --no-daemon --spin-time 2`. Нажмите `Ctrl+C` в терминале запуска и повторите проверку списка нод. Для опыта запустите симулятор ещё раз.
 
-В первом терминале запустите симулятор:
+## Передача команды из терминала
 
-```bash
-ros2 run turtlesim turtlesim_node
-```
-
-Во втором запустите управление и нажмите стрелки при фокусе в этом терминале:
+Посмотрите начальную позу и структуру команды скорости. В новом терминале заранее подключите ROS и задайте те же `ROS_DOMAIN_ID` и `ROS_AUTOMATIC_DISCOVERY_RANGE`, что у симулятора.
 
 ```bash
-ros2 run turtlesim turtle_teleop_key
-```
-
-В третьем терминале из корня репозитория сохраните отчёт среды и проверьте граф:
-
-```bash
-mkdir -p evidence/pr01
-ros2 doctor --report > evidence/pr01/doctor.txt 2>&1
-ros2 node list --no-daemon --spin-time 2
-ros2 topic list -t --no-daemon --spin-time 2
-ros2 node info /turtlesim --no-daemon --spin-time 2
+ros2 interface show geometry_msgs/msg/Twist
 POSE_TYPE=$(ros2 topic type /turtle1/pose --no-daemon --spin-time 2)
-printf '%s\n' "$POSE_TYPE"
 ros2 topic echo /turtle1/pose "$POSE_TYPE" --once
-ros2 topic hz /turtle1/pose
+ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist \
+  '{linear: {x: 1.0}, angular: {z: 0.5}}'
+ros2 topic echo /turtle1/pose "$POSE_TYPE" --once
 ```
 
-Оставьте замер частоты на 10 секунд или дольше и остановите его через `Ctrl+C`. Запишите длительность и измеренную частоту. Команды движения проходят через `/turtle1/cmd_vel`, а наблюдаемые координаты и скорости приходят в `/turtle1/pose`.
-
-## Проверка изоляции и восстановления
-
-Оставьте симулятор работать в домене 16. Остановите управление через `Ctrl+C` и запустите его в домене 17:
+В отдельном терминале с теми же настройками запустите непрерывную публикацию в `/cmd_vel`:
 
 ```bash
-export ROS_DOMAIN_ID=17
-ros2 run turtlesim turtle_teleop_key
+ros2 topic pub --rate 1 --wait-matching-subscriptions 0 \
+  /cmd_vel geometry_msgs/msg/Twist \
+  '{linear: {x: 1.0}, angular: {z: 0.5}}'
 ```
 
-В терминале наблюдения, где сохранён `POSE_TYPE`, выполните:
+Пока издатель активен, сравните конечные точки и посмотрите позу:
 
 ```bash
-export ROS_DOMAIN_ID=17
-ros2 node list --no-daemon --spin-time 2
-timeout 5s ros2 topic echo /turtle1/pose "$POSE_TYPE" --once > evidence/pr01/pose-broken.txt 2>&1
-printf 'exit=%s\n' "$?"
+ros2 topic info /cmd_vel --verbose --no-daemon --spin-time 2
+ros2 topic info /turtle1/cmd_vel --verbose --no-daemon --spin-time 2
+ros2 topic echo /turtle1/pose "$POSE_TYPE" --once
 ```
 
-За пять секунд поза поступить не должна. При истечении таймаута команда завершится с кодом `124`.
+Остановите издателя и запустите ту же команду публикации с именем `/turtle1/cmd_vel`. Теперь у издателя появляется подписчик `/turtlesim`, а поза меняется. Остановите публикацию через `Ctrl+C`. Если ноды или конечные точки ещё не видны, подождите обнаружения DDS и повторите команду просмотра.
 
-Остановите управление и перезапустите его после `export ROS_DOMAIN_ID=16`. В терминале наблюдения поменяйте домен и повторите проверку:
+## Отчёт и проверка
 
-```bash
-export ROS_DOMAIN_ID=16
-ros2 node list --no-daemon --spin-time 2
-timeout 5s ros2 topic echo /turtle1/pose "$POSE_TYPE" --once > evidence/pr01/pose-fixed.txt 2>&1
-printf 'exit=%s\n' "$?"
-```
-
-Ожидаемые результаты — обе ноды в списке, сообщение позы и код `0`. Проверьте стрелками, что управление вернулось.
-
-## Проверка отчёта
-
-Команды и результаты опыта находятся в [`evidence/pr01/graph.md`](evidence/pr01/graph.md). CI загружает course kit `v1-w12`, проверяет контрольную сумму архива и запускает checker с полной историей Git. С тем же комплектом, распакованным в `.course-kit/`, локальная проверка выполняется из корня репозитория:
+[Команды и наблюдения](evidence/pr02/commands.md) содержат логи опыта. [Типы сообщений](evidence/pr02/types.md) описывают поля скорости и позы. В GitHub Actions пакет собирается в ROS 2 Lyrical, затем проверяются установленный launch-файл и отчёт.
 
 ```bash
-python3 -m json.tool evidence/pr01/environment.json > /dev/null
-python3 -m json.tool evidence/pr01/report.json > /dev/null
-python3 .course-kit/v1/tools/check_practice.py PR01 --submission .
+python3 -m py_compile src/turtle_bringup/launch/sim.launch.py
+python3 .course-kit/v1/tools/check_practice.py PR02 --submission .
 ```
