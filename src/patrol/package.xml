@@ -3,12 +3,13 @@
 <package format="3">
   <name>patrol</name>
   <version>0.0.0</version>
-  <description>Publish velocity commands after receiving a turtlesim pose.</description>
+  <description>Publish turtlesim motion commands with validated runtime parameters.</description>
   <maintainer email="205416082+Pavel-Bratchikov@users.noreply.github.com">Pasha</maintainer>
   <license>Apache-2.0</license>
 
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
+  <depend>rcl_interfaces</depend>
   <depend>turtlesim_msgs</depend>
   <test_depend>python3-pytest</test_depend>
 

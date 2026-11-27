@@ -14,7 +14,7 @@ setup(
     zip_safe=True,
     maintainer='Pasha',
     maintainer_email='205416082+Pavel-Bratchikov@users.noreply.github.com',
-    description='Publish velocity commands after receiving a turtlesim pose.',
+    description='Publish turtlesim motion commands with validated runtime parameters.',
     license='Apache-2.0',
     extras_require={'test': ['pytest']},
     entry_points={'console_scripts': ['patrol = patrol.patrol:main']},

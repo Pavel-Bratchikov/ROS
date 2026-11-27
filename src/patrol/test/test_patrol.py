@@ -15,3 +15,15 @@ def test_command_moves_after_receiving_pose():
     pose = Pose(x=5.5, y=5.5, theta=0.2)
 
     assert command_for_pose(pose) == expected
+
+
+def test_command_uses_custom_speed_and_turn_rate():
+    expected = Twist()
+    expected.linear.x = 0.8
+    expected.angular.z = -0.5
+
+    assert command_for_pose(Pose(), 0.8, -0.5) == expected
+
+
+def test_custom_values_still_require_pose():
+    assert command_for_pose(None, 0.8, -0.5) == Twist()

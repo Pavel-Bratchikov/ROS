@@ -1,4 +1,4 @@
-name: PR03
+name: PR04
 
 on: [push, pull_request]
 
@@ -13,6 +13,9 @@ jobs:
     env:
       COURSE_KIT_URL: https://ros.lms.ci.nsu.ru/downloads/robotics-course-kit-v1-w12-525e86f818ff.tar.gz
       COURSE_KIT_SHA256: 525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a
+      ROS_DOMAIN_ID: '184'
+      ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST
+      ROS_LOG_DIR: /tmp/pr04-ros-logs
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,8 +27,16 @@ jobs:
           source /opt/ros/lyrical/setup.bash
           colcon build --symlink-install --packages-select turtle_bringup patrol
           source install/setup.bash
+          python3 -m pytest src/patrol/test
           colcon test --packages-select patrol --event-handlers console_direct+ --return-code-on-test-failure
           colcon test-result --verbose
+
+      - name: Verify live parameter changes
+        shell: bash
+        run: |
+          source /opt/ros/lyrical/setup.bash
+          source install/setup.bash
+          python3 tools/record_pr04.py --output /tmp/pr04-ci/commands.md
 
       - name: Download verified course kit
         shell: bash
@@ -37,8 +48,17 @@ jobs:
           mkdir -p .course-kit
           tar -xzf "$kit_archive" -C .course-kit
 
-      - name: Validate PR03 evidence
+      - name: Validate PR04 evidence
         shell: bash
         run: |
-          python3 -m json.tool evidence/pr03/report.json > /dev/null
-          python3 .course-kit/v1/tools/check_practice.py PR03 --submission .
+          python3 -m json.tool evidence/pr04/report.json > /dev/null
+          python3 .course-kit/v1/tools/check_practice.py PR04 --submission .
+
+      - name: Save live experiment and test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr04-checks
+          path: |
+            /tmp/pr04-ci/
+            log/latest_test/
