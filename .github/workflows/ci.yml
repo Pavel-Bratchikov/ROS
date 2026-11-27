@@ -1,4 +1,4 @@
-name: PR05
+name: PR06
 
 on: [push, pull_request]
 
@@ -13,30 +13,22 @@ jobs:
     env:
       COURSE_KIT_URL: https://ros.lms.ci.nsu.ru/downloads/robotics-course-kit-v1-w12-525e86f818ff.tar.gz
       COURSE_KIT_SHA256: 525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a
-      ROS_DOMAIN_ID: '195'
+      ROS_DOMAIN_ID: '203'
       ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST
-      ROS_LOG_DIR: /tmp/pr05-ros-logs
+      ROS_LOG_DIR: /tmp/pr06-ros-logs
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Build and test the ROS workspace
+      - name: Install model and virtual display tools
         shell: bash
         run: |
-          source /opt/ros/lyrical/setup.bash
-          colcon build --symlink-install
-          source install/setup.bash
-          python3 -m pytest src/patrol/test src/course_bringup/test
-          colcon test --packages-select patrol course_bringup --event-handlers console_direct+ --return-code-on-test-failure
-          colcon test-result --verbose
-
-      - name: Verify live QoS and MCAP replay
-        shell: bash
-        run: |
-          source /opt/ros/lyrical/setup.bash
-          source install/setup.bash
-          ROS_DOMAIN_ID=196 python3 tools/record_pr05.py --output /tmp/pr05-ci
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            ros-lyrical-xacro ros-lyrical-urdfdom ros-lyrical-tf2-tools \
+            ros-lyrical-robot-state-publisher ros-lyrical-rviz2 python3-numpy python3-pyqt6 \
+            graphviz xvfb xauth x11-utils libgl1-mesa-dri libglx-mesa0 libxcb-cursor0
 
       - name: Download verified course kit
         shell: bash
@@ -48,17 +40,36 @@ jobs:
           mkdir -p .course-kit
           tar -xzf "$kit_archive" -C .course-kit
 
-      - name: Validate PR05 evidence
+      - name: Build packages and check the model
         shell: bash
         run: |
-          python3 -m json.tool evidence/pr05/report.json > /dev/null
-          python3 .course-kit/v1/tools/check_practice.py PR05 --submission .
+          source /opt/ros/lyrical/setup.bash
+          colcon build --symlink-install
+          source install/setup.bash
+          xacro src/course_description/urdf/vehicle.urdf.xacro -o /tmp/vehicle.urdf
+          check_urdf /tmp/vehicle.urdf
+          colcon test --packages-select patrol course_bringup course_description --event-handlers console_direct+ --return-code-on-test-failure
+          colcon test-result --verbose
 
-      - name: Save QoS transcripts and the test recording
+      - name: Verify transforms, late reception and RViz
+        shell: bash
+        run: |
+          source /opt/ros/lyrical/setup.bash
+          source install/setup.bash
+          ROS_DOMAIN_ID=204 QT_QPA_PLATFORM=xcb QT_SCALE_FACTOR=1 LIBGL_ALWAYS_SOFTWARE=1 \
+            xvfb-run -a -s '-screen 0 1400x950x24' python3 tools/record_pr06.py --output /tmp/pr06-ci --rviz
+
+      - name: Validate PR06 evidence
+        shell: bash
+        run: |
+          python3 -m json.tool evidence/pr06/report.json > /dev/null
+          python3 .course-kit/v1/tools/check_practice.py PR06 --submission .
+
+      - name: Save model, transform evidence and RViz screenshot
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pr05-checks
+          name: pr06-checks
           path: |
-            /tmp/pr05-ci/
+            /tmp/pr06-ci/
             log/latest_test/

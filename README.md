@@ -1,81 +1,71 @@
-# ПР05. Запуск patrol, QoS и повтор MCAP
+# ПР06. Описание Ackermann-робота и дерево tf2
 
-`course_bringup` запускает один `/turtlesim` и ноды `patrol`, `pose_relay` и `pose_subscriber` в заданном пространстве имён. При стандартном `namespace:=robot_a` реле получает глобальную позу `/turtle1/pose` и публикует её в `/robot_a/sensor_pose` с `best_effort`. Команда движения от `patrol` переназначена на `/turtle1/cmd_vel`.
+Пакет `course_description` разворачивает Xacro и передаёт URDF в `robot_state_publisher`. Размеры корпуса и колёс взяты из SDF курса. Оси корпуса следуют REP-103: вперёд по X, влево по Y, вверх по Z.
 
-| Аргумент запуска | По умолчанию | Назначение |
-| --- | --- | --- |
-| `namespace` | `robot_a` | Пространство имён трёх нод работы |
-| `record` | `false` | Запустить recorder только при `true` |
-| `bag_dir` | `pr05-bag` | Новый каталог записи MCAP |
-| `subscriber_reliability` | `best_effort` | Запрошенная надёжность подписчика |
+| Аргумент launch | Значение по умолчанию | Что меняется |
+| --- | ---: | --- |
+| `wheelbase` | 0.80 м | Расстояние между осями |
+| `track` | 0.62 м | Расстояние между центрами левого и правого колёс |
+| `wheel_radius` | 0.12 м | Радиус колеса и высота `base_link` над `base_footprint` |
+| `rviz` | `true` | Запуск RViz с готовой конфигурацией |
 
-## Сборка
+## Сборка и запуск
 
-Из корня проекта в ROS 2 Lyrical:
+Распакуйте course kit в `.course-kit/`. Из корня workspace в ROS 2 Lyrical выполните:
 
 ```bash
 source /opt/ros/lyrical/setup.bash
 colcon build --symlink-install
 source install/setup.bash
-colcon test --packages-select patrol course_bringup --event-handlers console_direct+ --return-code-on-test-failure
-colcon test-result --verbose
+xacro src/course_description/urdf/vehicle.urdf.xacro -o /tmp/vehicle.urdf
+check_urdf /tmp/vehicle.urdf
+colcon test --packages-select course_description --event-handlers console_direct+ --return-code-on-test-failure
+colcon test-result --verbose --test-result-base build/course_description
 ```
 
-В каждом терминале опыта подключите ту же базовую ROS и `install/setup.bash`, работайте из корня проекта и используйте один свободный домен, например `196`. Остановите старые запуски симулятора, контроллера и плеера.
+Подключите окружение ROS и `install/setup.bash` в каждом терминале. Задайте один свободный домен, остановите прежние экземпляры `robot_state_publisher` и запустите модель:
 
 ```bash
-export ROS_DOMAIN_ID=196
+export ROS_DOMAIN_ID=201
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+ros2 launch course_description description.launch.py
 ```
 
-## Сравнение профилей на живом потоке
-
-В первом терминале запустите несовместимый профиль:
+В конфигурации RViz Fixed Frame задан как `base_link`. Для запуска только издателя преобразований добавьте `rviz:=false`. Фиксированные звенья появляются сразу. Чтобы в RViz также появились колёса и поворотные кулаки, во втором терминале подайте начальные углы:
 
 ```bash
-ros2 launch course_bringup patrol.launch.py namespace:=robot_a record:=false subscriber_reliability:=reliable
+ros2 topic pub -r 10 /joint_states sensor_msgs/msg/JointState \
+  '{header: auto, name: [front_left_steering_joint, front_right_steering_joint, front_left_wheel_joint, front_right_wheel_joint, rear_left_wheel_joint, rear_right_wheel_joint], position: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
 ```
 
-Во втором подтвердите, что топик обнаружен. `reliable`-подписчик запрашивает гарантию, которую издатель `best_effort` не предлагает. Через три секунды `timeout` должен вернуть `124`.
+## Проверка связей и QoS
 
 ```bash
-ros2 topic info /robot_a/sensor_pose --verbose --no-daemon --spin-time 2
-timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability reliable
+ros2 run tf2_ros tf2_echo base_link lidar_link
+```
+
+Смещение исправного лидара от корпуса равно `(0.28, 0, 0.38)` м. Завершите `tf2_echo` через `Ctrl+C`, проверьте дерево и подписки:
+
+```bash
+ros2 run tf2_tools view_frames --output /tmp/pr06-frames
+ros2 topic info /tf_static --verbose --no-daemon --spin-time 2
+timeout 4s ros2 topic echo /tf_static tf2_msgs/msg/TFMessage --once \
+  --qos-reliability reliable --qos-durability transient_local
+printf 'exit=%s\n' "$?"
+timeout 4s ros2 topic echo /tf_static tf2_msgs/msg/TFMessage --once \
+  --qos-reliability reliable --qos-durability volatile
 printf 'exit=%s\n' "$?"
 ```
 
-Остановите первый запуск и замените профиль подписчика. Укажите свободное имя каталога записи.
+Поздняя подписка с `transient_local` читает сохранённые преобразования и завершает команду с кодом `0`. Для того же издателя `volatile` ждёт только новые сообщения, поэтому при неизменной модели ожидается код `124`.
+
+## Материалы проверки
+
+[Таблица фреймов](evidence/pr06/frames.md), [профили TF](evidence/pr06/tf-qos.txt) и [вывод проверок модели](evidence/pr06/model-check.txt) фиксируют результаты. В отдельной копии смена родителя `lidar_link` на `camera_link` оставляет дерево структурно корректным, но удваивает смещение по X и Z.
+
+После остановки ручных запусков автоматический опыт можно повторить из нового каталога. Флаг `--rviz` дополнительно сохраняет PNG окна и требует дисплея X11 (например, `xvfb-run`).
 
 ```bash
-ros2 launch course_bringup patrol.launch.py namespace:=robot_a record:=true bag_dir:=pr05-bag subscriber_reliability:=best_effort
+ROS_DOMAIN_ID=204 python3 tools/record_pr06.py --output "$(mktemp -d)/run"
+python3 .course-kit/v1/tools/check_practice.py PR06 --submission .
 ```
-
-Второй терминал должен получить сообщение, а счётчик подписчика в первом начнёт расти.
-
-```bash
-timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability best_effort
-```
-
-Дайте recorder поработать несколько секунд и завершите launch через `Ctrl+C`, чтобы сохранить метаданные.
-
-## Повтор записи
-
-Проверьте состав и запустите повтор в первом терминале:
-
-```bash
-ros2 bag info pr05-bag
-ros2 bag play pr05-bag --loop --qos-profile-overrides-path config/qos-overrides.yaml
-```
-
-Во втором терминале повторите обе команды `echo` с теми же профилями. На одном и том же MCAP `reliable` снова ждёт до таймаута, а `best_effort` получает позу.
-
-## Проверки и результаты
-
-Автоматический опыт повторяет обе проверки QoS и создаёт запись в новом каталоге. Живой симулятор в нём работает без окна.
-
-```bash
-ROS_DOMAIN_ID=196 python3 tools/record_pr05.py --output "$(mktemp -d)/run"
-python3 .course-kit/v1/tools/check_practice.py PR05 --submission .
-```
-
-Для сдачи сохранены [вывод с таймаутами](evidence/pr05/qos-before.txt), [вывод с доставкой](evidence/pr05/qos-after.txt), [метаданные](evidence/pr05/bag-metadata.yaml) и [один MCAP](evidence/pr05/bag/).
