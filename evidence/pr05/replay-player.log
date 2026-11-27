@@ -1,0 +1,76 @@
+[INFO] [1795760020.724269961] [rosbag2_player]: Set rate to 1
+====== Playback Progress ======
+[1795760000.897786379] Duration 0.00/12.67 [R]
+[INFO] [1795760020.724498749] [rosbag2_player]: Overriding QoS profile for topic /robot_a/sensor_pose
+Progress bar enabled at 3 Hz.
+Progress bar [?]: [R]unning, [P]aused, [B]urst, [D]elayed, [S]topped
+====== Playback Progress ======
+[1795760000.897786379] Duration 0.00/12.67 [S]
+[INFO] [1795760020.735016491] [rosbag2_player]: Playback until timestamp: -1
+====== Playback Progress ======
+[1795760000.897786379] Duration 0.00/12.67 [R]
+====== Playback Progress ======
+[1795760000.897786379] Duration 0.00/12.67 [R]
+====== Playback Progress ======
+[1795760001.233702898] Duration 0.34/12.67 [R]
+====== Playback Progress ======
+[1795760001.569503546] Duration 0.67/12.67 [R]
+[WARN] [1795760021.823421031] [rosbag2_player]: New subscription discovered on topic '/robot_a/sensor_pose', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY_QOS_POLICY
+====== Playback Progress ======
+[1795760001.905313492] Duration 1.01/12.67 [R]
+====== Playback Progress ======
+[1795760002.241429567] Duration 1.34/12.67 [R]
+====== Playback Progress ======
+[1795760002.577873468] Duration 1.68/12.67 [R]
+====== Playback Progress ======
+[1795760002.913506985] Duration 2.02/12.67 [R]
+====== Playback Progress ======
+[1795760003.249073744] Duration 2.35/12.67 [R]
+====== Playback Progress ======
+[1795760003.585603476] Duration 2.69/12.67 [R]
+====== Playback Progress ======
+[1795760003.921540022] Duration 3.02/12.67 [R]
+====== Playback Progress ======
+[1795760004.257354021] Duration 3.36/12.67 [R]
+====== Playback Progress ======
+[1795760004.593929291] Duration 3.70/12.67 [R]
+====== Playback Progress ======
+[1795760004.929045200] Duration 4.03/12.67 [R]
+====== Playback Progress ======
+[1795760005.265202522] Duration 4.37/12.67 [R]
+====== Playback Progress ======
+[1795760005.602365494] Duration 4.70/12.67 [R]
+====== Playback Progress ======
+[1795760005.937244415] Duration 5.04/12.67 [R]
+====== Playback Progress ======
+[1795760006.273407459] Duration 5.38/12.67 [R]
+====== Playback Progress ======
+[1795760006.608867645] Duration 5.71/12.67 [R]
+====== Playback Progress ======
+[1795760006.945865393] Duration 6.05/12.67 [R]
+[WARN] [1795760027.106959192] [rosbag2_player]: New subscription discovered on topic '/robot_a/sensor_pose', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY_QOS_POLICY
+====== Playback Progress ======
+[1795760007.282681227] Duration 6.38/12.67 [R]
+====== Playback Progress ======
+[1795760007.618096590] Duration 6.72/12.67 [R]
+====== Playback Progress ======
+[1795760007.953588724] Duration 7.06/12.67 [R]
+====== Playback Progress ======
+[1795760008.290020466] Duration 7.39/12.67 [R]
+====== Playback Progress ======
+[1795760008.625840425] Duration 7.73/12.67 [R]
+====== Playback Progress ======
+[1795760008.961720943] Duration 8.06/12.67 [R]
+====== Playback Progress ======
+[1795760009.297444820] Duration 8.40/12.67 [R]
+====== Playback Progress ======
+[1795760009.633652925] Duration 8.74/12.67 [R]
+[INFO] [1795760029.844931066] [rosbag2_player]: Stopping playback.
+====== Playback Progress ======
+[1795760009.633652925] Duration 8.74/12.67 [S]
+====== Playback Progress ======
+[1795760009.633652925] Duration 8.74/12.67 [R]
+====== Playback Progress ======
+[1795760009.633652925] Duration 8.74/12.67 [R]
+====== Playback Progress ======
+[1795760009.633652925] Duration 8.74/12.67 [R]

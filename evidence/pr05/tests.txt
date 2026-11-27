@@ -1,0 +1,60 @@
+$ colcon build --symlink-install
+Starting >>> patrol
+Starting >>> turtle_bringup
+Finished <<< turtle_bringup [2.54s]
+Finished <<< patrol [2.73s]
+Starting >>> course_bringup
+Finished <<< course_bringup [2.20s]
+
+Summary: 3 packages finished [5.12s]
+
+$ python3 -m pytest src/patrol/test src/course_bringup/test
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.0.2, pluggy-1.6.0
+rootdir: <workspace>
+plugins: launch_testing_ros-0.29.9, ament_flake8-0.20.6, ament_xmllint-0.20.6, launch_testing-3.9.8, ament_lint-0.20.6, ament_copyright-0.20.6, ament_pep257-0.20.6, ament_mypy-0.20.6, anyio-4.16.0, platformdirs-4.14.5, cov-5.0.0, typeguard-4.4.4, colcon-core-0.21.3
+collected 48 items
+
+src/patrol/test/test_node_parameters.py .............                    [ 27%]
+src/patrol/test/test_parameters.py .....................                 [ 70%]
+src/patrol/test/test_patrol.py ....                                      [ 79%]
+src/course_bringup/test/test_pose_delivery.py ...                        [ 85%]
+src/course_bringup/test/test_qos.py .......                              [100%]
+
+============================== 48 passed in 0.89s ==============================
+
+$ colcon test --packages-select patrol course_bringup --event-handlers console_direct+ --return-code-on-test-failure
+Starting >>> patrol
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.0.2, pluggy-1.6.0
+cachedir: <workspace>/build/patrol/.pytest_cache
+rootdir: <workspace>/src/patrol
+plugins: launch_testing_ros-0.29.9, ament_flake8-0.20.6, ament_xmllint-0.20.6, launch_testing-3.9.8, ament_lint-0.20.6, ament_copyright-0.20.6, ament_pep257-0.20.6, ament_mypy-0.20.6, anyio-4.16.0, platformdirs-4.14.5, cov-5.0.0, typeguard-4.4.4, colcon-core-0.21.3
+collected 38 items
+
+test/test_node_parameters.py .............                               [ 34%]
+test/test_parameters.py .....................                            [ 89%]
+test/test_patrol.py ....                                                 [100%]
+
+-- generated xml file: <workspace>/build/patrol/pytest.xml ---
+============================== 38 passed in 0.55s ==============================
+Finished <<< patrol [1.68s]
+Starting >>> course_bringup
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.0.2, pluggy-1.6.0
+cachedir: <workspace>/build/course_bringup/.pytest_cache
+rootdir: <workspace>/src/course_bringup
+plugins: launch_testing_ros-0.29.9, ament_flake8-0.20.6, ament_xmllint-0.20.6, launch_testing-3.9.8, ament_lint-0.20.6, ament_copyright-0.20.6, ament_pep257-0.20.6, ament_mypy-0.20.6, anyio-4.16.0, platformdirs-4.14.5, cov-5.0.0, typeguard-4.4.4, colcon-core-0.21.3
+collected 10 items
+
+test/test_pose_delivery.py ...                                           [ 30%]
+test/test_qos.py .......                                                 [100%]
+
+- generated xml file: <workspace>/build/course_bringup/pytest.xml -
+============================== 10 passed in 0.60s ==============================
+Finished <<< course_bringup [1.75s]
+
+Summary: 2 packages finished [3.61s]
+
+$ colcon test-result --verbose
+Summary: 48 tests, 0 errors, 0 failures, 0 skipped

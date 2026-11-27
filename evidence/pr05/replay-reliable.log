@@ -1,0 +1,14 @@
+[INFO] [1795760019.223595440] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760020.213599155] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760021.213509725] [robot_a.replay_reliable]: reliability=reliable received=0
+[WARN] [1795760021.752203751] [robot_a.replay_reliable]: New publisher discovered on topic 'sensor_pose', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
+[INFO] [1795760022.213486980] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760023.216117843] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760024.214584389] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760025.213586137] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760026.213498192] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760027.213659423] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760028.213491163] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760029.214158468] [robot_a.replay_reliable]: reliability=reliable received=0
+[INFO] [1795760030.213503746] [robot_a.replay_reliable]: reliability=reliable received=0
+[ros2run]: Received signal:  Interrupt

@@ -1,0 +1,12 @@
+[INFO] [1795760019.177044275] [robot_a.replay_best_effort]: reliability=best_effort received=0
+[INFO] [1795760020.167780432] [robot_a.replay_best_effort]: reliability=best_effort received=0
+[INFO] [1795760021.167606686] [robot_a.replay_best_effort]: reliability=best_effort received=0
+[INFO] [1795760022.167519904] [robot_a.replay_best_effort]: reliability=best_effort received=22
+[INFO] [1795760023.167806005] [robot_a.replay_best_effort]: reliability=best_effort received=84
+[INFO] [1795760024.167499671] [robot_a.replay_best_effort]: reliability=best_effort received=147
+[INFO] [1795760025.167620062] [robot_a.replay_best_effort]: reliability=best_effort received=209
+[INFO] [1795760026.167455296] [robot_a.replay_best_effort]: reliability=best_effort received=272
+[INFO] [1795760027.168111765] [robot_a.replay_best_effort]: reliability=best_effort received=334
+[INFO] [1795760028.167478478] [robot_a.replay_best_effort]: reliability=best_effort received=387
+[INFO] [1795760029.168140632] [robot_a.replay_best_effort]: reliability=best_effort received=449
+[ros2run]: Received signal:  Interrupt

@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "practice_id": "PR05",
+  "commit": "7db2361e4cf6125d1fc78d4bfe09be6f2162532b",
+  "course_kit": {
+    "version": "v1-w12",
+    "archive_sha256": "525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a"
+  },
+  "commands": [
+    "source /opt/ros/lyrical/setup.bash",
+    "colcon build --symlink-install",
+    "source install/setup.bash",
+    "python3 -m pytest src/patrol/test src/course_bringup/test",
+    "colcon test --packages-select patrol course_bringup --event-handlers console_direct+ --return-code-on-test-failure",
+    "colcon test-result --verbose",
+    "ROS_DOMAIN_ID=196 python3 tools/record_pr05.py --output <output>",
+    "ros2 node list --no-daemon --spin-time 2",
+    "ros2 launch course_bringup patrol.launch.py --show-args",
+    "ros2 launch course_bringup patrol.launch.py namespace:=robot_a subscriber_reliability:=reliable record:=false bag_dir:=<output>/bag",
+    "ros2 topic info /robot_a/sensor_pose --verbose --no-daemon --spin-time 2",
+    "ros2 topic list --no-daemon --spin-time 2",
+    "ros2 node info /robot_a/patrol --no-daemon --spin-time 2",
+    "timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability reliable --qos-history keep_last --qos-depth 10 --qos-durability volatile --no-daemon --spin-time 0.1",
+    "ros2 run course_bringup pose_subscriber --ros-args -r __ns:=/robot_a -r __node:=replay_reliable -p reliability:=reliable",
+    "ros2 launch course_bringup patrol.launch.py namespace:=robot_a subscriber_reliability:=best_effort record:=true bag_dir:=<output>/bag",
+    "timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability best_effort --qos-history keep_last --qos-depth 10 --qos-durability volatile --no-daemon --spin-time 0.1",
+    "ros2 bag info <output>/bag",
+    "ros2 run course_bringup pose_subscriber --ros-args -r __ns:=/robot_a -r __node:=replay_best_effort -p reliability:=best_effort",
+    "ros2 bag play <output>/bag --loop --qos-profile-overrides-path <workspace>/config/qos-overrides.yaml --disable-keyboard-controls"
+  ],
+  "tests": [
+    {
+      "name": "build_and_test",
+      "status": "passed",
+      "details": "Собраны три пакета. 48 тестов прошли через pytest и colcon test."
+    },
+    {
+      "name": "dds_relay",
+      "status": "passed",
+      "details": "Тест переназначения подтвердил передачу Pose без изменений только совместимому подписчику."
+    },
+    {
+      "name": "launch_namespace_and_record",
+      "status": "passed",
+      "details": "Глобальный /turtlesim и три ноды под /robot_a. record=false оставляет граф без recorder, record=true включает запись."
+    },
+    {
+      "name": "live_reliable_timeout",
+      "status": "passed",
+      "details": "В графе виден /robot_a/sensor_pose, reliable echo получает код 124 и подписчик сохраняет received=0."
+    },
+    {
+      "name": "live_best_effort_delivery",
+      "status": "passed",
+      "details": "Best effort получил Pose, счётчик достиг 743."
+    },
+    {
+      "name": "mcap_single_topic",
+      "status": "passed",
+      "details": "В MCAP сохранено 793 сообщений одного топика /robot_a/sensor_pose."
+    },
+    {
+      "name": "replay_both_profiles",
+      "status": "passed",
+      "details": "При повторе reliable снова даёт 124 и счётчик 0. Best effort получает позу, счётчик достиг 449. SHA-256 файла сохранилась."
+    },
+    {
+      "name": "process_cleanup",
+      "status": "passed",
+      "details": "После остановки launch, подписчиков и плеера контрольные списки нод пусты."
+    }
+  ],
+  "defect": {
+    "reproducer": "Запустить launch с subscriber_reliability:=reliable и record:=false. Топик /robot_a/sensor_pose обнаруживается, но reliable echo за 3 с не получает сообщение, код 124.",
+    "root_cause": "У relay предлагается BEST_EFFORT, а подписчик запрашивает RELIABLE. Обнаружение в DDS работает, политики надёжности не совпадают.",
+    "proof_after": "С best_effort команда echo получает позу. На живом потоке создан один MCAP. Обе проверки повторены на нём с config/qos-overrides.yaml: таймаут и нулевой счётчик у reliable, доставка у best_effort. SHA-256 записи одинакова до и после."
+  },
+  "bag": {
+    "directory": "evidence/pr05/bag",
+    "storage_identifier": "mcap",
+    "topic": "/robot_a/sensor_pose",
+    "type": "turtlesim_msgs/msg/Pose",
+    "message_count": 793,
+    "duration_nanoseconds": 12671832571,
+    "file": "0_bag_2026_11_27-13_13_20.mcap",
+    "sha256": "582e49520b30aab6f9c0c6424acb4c0ad26d13ad850c67359eab2137cea541a3",
+    "replay_qos_override": "config/qos-overrides.yaml"
+  },
+  "claims": {
+    "public_tests_passed": true,
+    "defect_reproduced": true,
+    "defect_fixed": true,
+    "replay_verified": true
+  },
+  "time": {
+    "contact_academic_hours": 2,
+    "self_study_hours": 2,
+    "basis": "План из условия ПР05."
+  },
+  "ai_used": true
+}

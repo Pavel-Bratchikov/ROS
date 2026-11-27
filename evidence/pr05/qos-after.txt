@@ -1,0 +1,156 @@
+ROS_DOMAIN_ID=196, QT_QPA_PLATFORM=offscreen
+
+$ ros2 launch course_bringup patrol.launch.py namespace:=robot_a subscriber_reliability:=best_effort record:=true bag_dir:=<output>/bag
+Лог процесса: live-best_effort.log
+[started]
+
+$ ros2 node list --no-daemon --spin-time 2
+/robot_a/patrol
+/robot_a/pose_subscriber
+/rosbag2_recorder
+/turtlesim
+[exit 0]
+
+$ ros2 node list --no-daemon --spin-time 2
+/robot_a/patrol
+/robot_a/pose_relay
+/robot_a/pose_subscriber
+/rosbag2_recorder
+/turtlesim
+[exit 0]
+
+$ ros2 topic info /robot_a/sensor_pose --verbose --no-daemon --spin-time 2
+Type: turtlesim_msgs/msg/Pose
+
+Publisher count: 1
+
+Node name: pose_relay
+Node namespace: /robot_a
+Topic type: turtlesim_msgs/msg/Pose
+Topic type hash: RIHS01_37b07ace09a0ed2c5b774b1410dec972dfd1d292de5656ebc2b075ac646e09c8
+Endpoint type: PUBLISHER
+GID: 01.0f.c0.cd.74.3c.11.e8.00.00.00.00.00.00.13.03
+QoS profile:
+  Reliability: BEST_EFFORT
+  History (Depth): KEEP_LAST (10)
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 2
+
+Node name: pose_subscriber
+Node namespace: /robot_a
+Topic type: turtlesim_msgs/msg/Pose
+Topic type hash: RIHS01_37b07ace09a0ed2c5b774b1410dec972dfd1d292de5656ebc2b075ac646e09c8
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.c0.cd.75.3c.31.23.00.00.00.00.00.00.13.04
+QoS profile:
+  Reliability: BEST_EFFORT
+  History (Depth): KEEP_LAST (10)
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Node name: rosbag2_recorder
+Node namespace: /
+Topic type: turtlesim_msgs/msg/Pose
+Topic type hash: RIHS01_37b07ace09a0ed2c5b774b1410dec972dfd1d292de5656ebc2b075ac646e09c8
+Endpoint type: SUBSCRIPTION
+GID: 01.0f.c0.cd.76.3c.41.87.00.00.00.00.00.00.26.04
+QoS profile:
+  Reliability: BEST_EFFORT
+  History (Depth): KEEP_LAST (10)
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+[exit 0]
+
+$ timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability best_effort --qos-history keep_last --qos-depth 10 --qos-durability volatile --no-daemon --spin-time 0.1
+x: 6.029144287109375
+y: 8.80451774597168
+theta: 2.841599941253662
+linear_velocity: 0.5
+angular_velocity: 0.30000001192092896
+---
+[exit 0]
+
+$ ros2 launch course_bringup patrol.launch.py namespace:=robot_a subscriber_reliability:=best_effort record:=true bag_dir:=<output>/bag
+Процесс завершён, лог: live-best_effort.log
+[exit 0]
+
+live-best_effort.log: best_effort, максимум счётчика received=743
+
+$ ros2 node list --no-daemon --spin-time 2
+
+[exit 0]
+
+$ ros2 bag info <output>/bag
+
+Files:             0_bag_2026_11_27-13_13_20.mcap
+Bag size:          59.8 KiB
+Storage id:        mcap
+ROS Distro:        lyrical
+Duration:          12.671832571s
+Start:             Nov 27 2026 13:13:20.897786490 (1795760000.897786490)
+End:               Nov 27 2026 13:13:33.569619061 (1795760013.569619061)
+Messages:          793
+Topic information: Topic: /robot_a/sensor_pose | Type: turtlesim_msgs/msg/Pose | Count: 793 | Serialization Format: cdr
+Services:          0
+Service information:
+Actions:           0
+Action information:
+[exit 0]
+
+$ ros2 run course_bringup pose_subscriber --ros-args -r __ns:=/robot_a -r __node:=replay_best_effort -p reliability:=best_effort
+Лог процесса: replay-best_effort.log
+[started]
+
+$ ros2 node list --no-daemon --spin-time 2
+/robot_a/replay_best_effort
+/robot_a/replay_reliable
+[exit 0]
+
+$ ros2 bag play <output>/bag --loop --qos-profile-overrides-path <workspace>/config/qos-overrides.yaml --disable-keyboard-controls
+Лог процесса: replay-player.log
+[started]
+
+$ ros2 node list --no-daemon --spin-time 2
+/robot_a/replay_best_effort
+/robot_a/replay_reliable
+/rosbag2_player
+[exit 0]
+
+$ timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability best_effort --qos-history keep_last --qos-depth 10 --qos-durability volatile --no-daemon --spin-time 0.1
+x: 6.345321178436279
+y: 8.670544624328613
+theta: 2.635200023651123
+linear_velocity: 0.5
+angular_velocity: 0.30000001192092896
+---
+[exit 0]
+
+$ ros2 bag play <output>/bag --loop --qos-profile-overrides-path <workspace>/config/qos-overrides.yaml --disable-keyboard-controls
+Процесс завершён, лог: replay-player.log
+[exit 0]
+
+$ ros2 run course_bringup pose_subscriber --ros-args -r __ns:=/robot_a -r __node:=replay_best_effort -p reliability:=best_effort
+Процесс завершён, лог: replay-best_effort.log
+[exit 0]
+
+replay-best_effort.log: best_effort, максимум счётчика received=449
+
+$ ros2 node list --no-daemon --spin-time 2
+
+[exit 0]
+
+SHA-256 одного MCAP до и после replay совпадает:
+{
+  "0_bag_2026_11_27-13_13_20.mcap": "582e49520b30aab6f9c0c6424acb4c0ad26d13ad850c67359eab2137cea541a3"
+}

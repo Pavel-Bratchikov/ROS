@@ -1,0 +1,46 @@
+[INFO] [launch]: All log files can be found below <ros-logs>
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: Namespace: robot_a, subscriber: best_effort, record: true
+[INFO] [turtlesim_node-1]: process started with pid [15474]
+[INFO] [patrol-2]: process started with pid [15475]
+[INFO] [pose_relay-3]: process started with pid [15476]
+[INFO] [pose_subscriber-4]: process started with pid [15477]
+[INFO] [ros2-5]: process started with pid [15478]
+[turtlesim_node-1] [INFO] [1795760000.105689006] [turtlesim]: Starting turtlesim with node name /turtlesim
+[turtlesim_node-1] [INFO] [1795760000.116314987] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+[ros2-5] [INFO] [1795760000.784976119] [rosbag2_recorder]: Event publisher thread: Started
+[ros2-5] [INFO] [1795760000.795865915] [rosbag2_recorder]: Starting recording to '<output>/bag'
+[ros2-5] [WARN] [1795760000.795908508] [rosbag2_recorder]: No input serialization format specified, using default rmw serialization format: 'cdr'.
+[ros2-5] [INFO] [1795760000.812837466] [rosbag2_recorder]: Listening for topics...
+[ros2-5] [INFO] [1795760000.812902011] [rosbag2_recorder]: Recording...
+[ros2-5] [INFO] [1795760000.812892459] [rosbag2_recorder]: Topics discovery started.
+[ros2-5] [INFO] [1795760000.892297659] [rosbag2_recorder]: Subscribed to topic '/robot_a/sensor_pose'
+[ros2-5] [INFO] [1795760000.892371448] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[ros2-5] [INFO] [1795760000.892387566] [rosbag2_recorder]: Topics discovery stopped.
+[pose_subscriber-4] [INFO] [1795760001.650516358] [robot_a.pose_subscriber]: reliability=best_effort received=55
+[pose_subscriber-4] [INFO] [1795760002.627548929] [robot_a.pose_subscriber]: reliability=best_effort received=118
+[pose_subscriber-4] [INFO] [1795760003.627455208] [robot_a.pose_subscriber]: reliability=best_effort received=180
+[pose_subscriber-4] [INFO] [1795760004.627217957] [robot_a.pose_subscriber]: reliability=best_effort received=243
+[pose_subscriber-4] [INFO] [1795760005.627225763] [robot_a.pose_subscriber]: reliability=best_effort received=305
+[pose_subscriber-4] [INFO] [1795760006.628118853] [robot_a.pose_subscriber]: reliability=best_effort received=367
+[pose_subscriber-4] [INFO] [1795760007.627553141] [robot_a.pose_subscriber]: reliability=best_effort received=430
+[pose_subscriber-4] [INFO] [1795760008.627219859] [robot_a.pose_subscriber]: reliability=best_effort received=493
+[pose_subscriber-4] [INFO] [1795760009.627359805] [robot_a.pose_subscriber]: reliability=best_effort received=555
+[pose_subscriber-4] [INFO] [1795760010.627523080] [robot_a.pose_subscriber]: reliability=best_effort received=618
+[pose_subscriber-4] [INFO] [1795760011.628563559] [robot_a.pose_subscriber]: reliability=best_effort received=680
+[pose_subscriber-4] [INFO] [1795760012.628543824] [robot_a.pose_subscriber]: reliability=best_effort received=743
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [ros2-5]: sending signal 'SIGINT' to process[ros2-5]
+[INFO] [pose_subscriber-4]: sending signal 'SIGINT' to process[pose_subscriber-4]
+[INFO] [pose_relay-3]: sending signal 'SIGINT' to process[pose_relay-3]
+[INFO] [patrol-2]: sending signal 'SIGINT' to process[patrol-2]
+[INFO] [turtlesim_node-1]: sending signal 'SIGINT' to process[turtlesim_node-1]
+[ros2-5] [INFO] [1795760013.583860519] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[ros2-5] [INFO] [1795760013.586112342] [rosbag2_recorder]: Recording stopped
+[ros2-5] [INFO] [1795760013.587073017] [rosbag2_recorder]: Event publisher thread: Exited
+[turtlesim_node-1] [INFO] [1795760013.587131099] [rclcpp]: signal_handler(signum=2)
+[INFO] [turtlesim_node-1]: process has finished cleanly [pid 15474]
+[INFO] [patrol-2]: process has finished cleanly [pid 15475]
+[INFO] [pose_relay-3]: process has finished cleanly [pid 15476]
+[INFO] [pose_subscriber-4]: process has finished cleanly [pid 15477]
+[INFO] [ros2-5]: process has finished cleanly [pid 15478]
