@@ -1,72 +1,81 @@
-# ПР04. Настройка скорости и частоты patrol
+# ПР05. Запуск patrol, QoS и повтор MCAP
 
-Пакет `patrol` из ПР03 теперь принимает параметры ROS 2 во время работы. Подписка по-прежнему хранит последнюю позу, а до её получения таймер отправляет нулевой `Twist`.
+`course_bringup` запускает один `/turtlesim` и ноды `patrol`, `pose_relay` и `pose_subscriber` в заданном пространстве имён. При стандартном `namespace:=robot_a` реле получает глобальную позу `/turtle1/pose` и публикует её в `/robot_a/sensor_pose` с `best_effort`. Команда движения от `patrol` переназначена на `/turtle1/cmd_vel`.
 
-| Параметр | По умолчанию | Допустимый диапазон |
-| --- | ---: | ---: |
-| `linear_speed` | 0.5 м/с | 0–1 м/с |
-| `turn_rate` | 0.3 рад/с | −1–1 рад/с |
-| `publish_hz` | 10.0 Гц | 1–30 Гц |
+| Аргумент запуска | По умолчанию | Назначение |
+| --- | --- | --- |
+| `namespace` | `robot_a` | Пространство имён трёх нод работы |
+| `record` | `false` | Запустить recorder только при `true` |
+| `bag_dir` | `pr05-bag` | Новый каталог записи MCAP |
+| `subscriber_reliability` | `best_effort` | Запрошенная надёжность подписчика |
 
-Нода сначала проверяет предложенные значения. Для принятой частоты она готовит новый таймер, останавливает старый и запускает новый. Отклонённое предложение оставляет прежние значения и поток команд.
-
-## Сборка и тесты
+## Сборка
 
 Из корня проекта в ROS 2 Lyrical:
 
 ```bash
 source /opt/ros/lyrical/setup.bash
-colcon build --symlink-install --packages-select turtle_bringup patrol
+colcon build --symlink-install
 source install/setup.bash
-python3 -m pytest src/patrol/test
+colcon test --packages-select patrol course_bringup --event-handlers console_direct+ --return-code-on-test-failure
+colcon test-result --verbose
 ```
 
-## Демонстрация в трёх терминалах
-
-В каждом терминале перейдите в корень проекта и подключите окружение. Выберите свободный домен и используйте его во всех терминалах.
+В каждом терминале опыта подключите ту же базовую ROS и `install/setup.bash`, работайте из корня проекта и используйте один свободный домен, например `196`. Остановите старые запуски симулятора, контроллера и плеера.
 
 ```bash
-source /opt/ros/lyrical/setup.bash
-source install/setup.bash
-export ROS_DOMAIN_ID=184
+export ROS_DOMAIN_ID=196
 export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
 ```
 
-В первом запустите `ros2 launch turtle_bringup sim.launch.py`. Во втором запустите контроллер с переназначением команды на топик симулятора:
+## Сравнение профилей на живом потоке
+
+В первом терминале запустите несовместимый профиль:
 
 ```bash
-ros2 run patrol patrol --ros-args -r cmd_vel:=/turtle1/cmd_vel
+ros2 launch course_bringup patrol.launch.py namespace:=robot_a record:=false subscriber_reliability:=reliable
 ```
 
-В третьем терминале проверьте исходную частоту. Прервите каждый запуск `ros2 topic hz` после нескольких секунд измерения.
+Во втором подтвердите, что топик обнаружен. `reliable`-подписчик запрашивает гарантию, которую издатель `best_effort` не предлагает. Через три секунды `timeout` должен вернуть `124`.
 
 ```bash
-ros2 param get /patrol publish_hz
-ros2 topic hz /turtle1/cmd_vel
-ros2 param set /patrol publish_hz 5.0
-ros2 topic hz /turtle1/cmd_vel
-ros2 param set /patrol publish_hz 0.0
-ros2 param get /patrol publish_hz
-ros2 topic hz /turtle1/cmd_vel
+ros2 topic info /robot_a/sensor_pose --verbose --no-daemon --spin-time 2
+timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability reliable
+printf 'exit=%s\n' "$?"
 ```
 
-После успешной смены частоты ожидается около 5 Гц. Запрос с `0.0` возвращает отказ, а следующий замер снова показывает около 5 Гц.
+Остановите первый запуск и замените профиль подписчика. Укажите свободное имя каталога записи.
 
 ```bash
-ros2 param set /patrol linear_speed 0.8
-ros2 param set /patrol turn_rate -0.5
-ros2 topic echo /turtle1/cmd_vel geometry_msgs/msg/Twist --once
-ros2 service call /clear std_srvs/srv/Empty '{}'
-ros2 action list -t
+ros2 launch course_bringup patrol.launch.py namespace:=robot_a record:=true bag_dir:=pr05-bag subscriber_reliability:=best_effort
 ```
 
-## Повторение проверок
-
-Для автоматического опыта остановите ручные запуски. Сценарий сам поднимет симулятор без окна и сохранит команды и вывод. Checker запускается из корня проекта после распаковки course kit в `.course-kit/`.
+Второй терминал должен получить сообщение, а счётчик подписчика в первом начнёт расти.
 
 ```bash
-ROS_DOMAIN_ID=184 python3 tools/record_pr04.py --output /tmp/pr04-demo/commands.md
-python3 .course-kit/v1/tools/check_practice.py PR04 --submission .
+timeout 3s ros2 topic echo /robot_a/sensor_pose turtlesim_msgs/msg/Pose --once --qos-reliability best_effort
 ```
 
-Сравнение исправной и временно изменённой версий, результаты измерений и команды собраны в [parameters.md](evidence/pr04/parameters.md).
+Дайте recorder поработать несколько секунд и завершите launch через `Ctrl+C`, чтобы сохранить метаданные.
+
+## Повтор записи
+
+Проверьте состав и запустите повтор в первом терминале:
+
+```bash
+ros2 bag info pr05-bag
+ros2 bag play pr05-bag --loop --qos-profile-overrides-path config/qos-overrides.yaml
+```
+
+Во втором терминале повторите обе команды `echo` с теми же профилями. На одном и том же MCAP `reliable` снова ждёт до таймаута, а `best_effort` получает позу.
+
+## Проверки и результаты
+
+Автоматический опыт повторяет обе проверки QoS и создаёт запись в новом каталоге. Живой симулятор в нём работает без окна.
+
+```bash
+ROS_DOMAIN_ID=196 python3 tools/record_pr05.py --output "$(mktemp -d)/run"
+python3 .course-kit/v1/tools/check_practice.py PR05 --submission .
+```
+
+Для сдачи сохранены [вывод с таймаутами](evidence/pr05/qos-before.txt), [вывод с доставкой](evidence/pr05/qos-after.txt), [метаданные](evidence/pr05/bag-metadata.yaml) и [один MCAP](evidence/pr05/bag/).

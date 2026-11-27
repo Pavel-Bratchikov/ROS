@@ -1,4 +1,4 @@
-name: PR04
+name: PR05
 
 on: [push, pull_request]
 
@@ -13,30 +13,30 @@ jobs:
     env:
       COURSE_KIT_URL: https://ros.lms.ci.nsu.ru/downloads/robotics-course-kit-v1-w12-525e86f818ff.tar.gz
       COURSE_KIT_SHA256: 525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a
-      ROS_DOMAIN_ID: '184'
+      ROS_DOMAIN_ID: '195'
       ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST
-      ROS_LOG_DIR: /tmp/pr04-ros-logs
+      ROS_LOG_DIR: /tmp/pr05-ros-logs
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Build workspace and test patrol
+      - name: Build and test the ROS workspace
         shell: bash
         run: |
           source /opt/ros/lyrical/setup.bash
-          colcon build --symlink-install --packages-select turtle_bringup patrol
+          colcon build --symlink-install
           source install/setup.bash
-          python3 -m pytest src/patrol/test
-          colcon test --packages-select patrol --event-handlers console_direct+ --return-code-on-test-failure
+          python3 -m pytest src/patrol/test src/course_bringup/test
+          colcon test --packages-select patrol course_bringup --event-handlers console_direct+ --return-code-on-test-failure
           colcon test-result --verbose
 
-      - name: Verify live parameter changes
+      - name: Verify live QoS and MCAP replay
         shell: bash
         run: |
           source /opt/ros/lyrical/setup.bash
           source install/setup.bash
-          python3 tools/record_pr04.py --output /tmp/pr04-ci/commands.md
+          ROS_DOMAIN_ID=196 python3 tools/record_pr05.py --output /tmp/pr05-ci
 
       - name: Download verified course kit
         shell: bash
@@ -48,17 +48,17 @@ jobs:
           mkdir -p .course-kit
           tar -xzf "$kit_archive" -C .course-kit
 
-      - name: Validate PR04 evidence
+      - name: Validate PR05 evidence
         shell: bash
         run: |
-          python3 -m json.tool evidence/pr04/report.json > /dev/null
-          python3 .course-kit/v1/tools/check_practice.py PR04 --submission .
+          python3 -m json.tool evidence/pr05/report.json > /dev/null
+          python3 .course-kit/v1/tools/check_practice.py PR05 --submission .
 
-      - name: Save live experiment and test logs
+      - name: Save QoS transcripts and the test recording
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pr04-checks
+          name: pr05-checks
           path: |
-            /tmp/pr04-ci/
+            /tmp/pr05-ci/
             log/latest_test/

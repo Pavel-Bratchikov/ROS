@@ -2,6 +2,7 @@ build/
 install/
 log/
 __pycache__/
+/pr05-bag/
 .course-kit/
 robotics-course-kit-*.tar.gz
 robotics-course-kit-*.sha256.txt
