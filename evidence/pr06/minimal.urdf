@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="pr06_chassis_and_lidar">
+  <material name="chassis">
+    <color rgba="0.11 0.43 0.67 1" />
+  </material>
+  <material name="lidar">
+    <color rgba="0.96 0.54 0.16 1" />
+  </material>
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.12" />
+      <geometry>
+        <box size="1.05 0.52 0.22" />
+      </geometry>
+      <material name="chassis" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.12" />
+      <geometry>
+        <box size="1.05 0.52 0.22" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.12" />
+      <mass value="12" />
+      <inertia ixx="0.31880000000000003" ixy="0" ixz="0" iyy="1.1509" iyz="0" izz="1.3729000000000002" />
+    </inertial>
+  </link>
+  <link name="lidar_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.04" />
+      <geometry>
+        <cylinder length="0.04" radius="0.035" />
+      </geometry>
+      <material name="lidar" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.04" />
+      <geometry>
+        <cylinder length="0.04" radius="0.035" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.04" />
+      <mass value="0.03333333333333333" />
+      <inertia ixx="1.4652777777777779e-05" ixy="0" ixz="0" iyy="1.4652777777777779e-05" iyz="0" izz="2.041666666666667e-05" />
+    </inertial>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <origin rpy="0 0 0" xyz="0.28 0 0.38" />
+  </joint>
+</robot>

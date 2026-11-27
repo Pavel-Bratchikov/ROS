@@ -1,0 +1,74 @@
+$ xacro <scratch>/minimal.urdf -o <scratch>/minimal-run/vehicle.urdf
+
+[exit 0]
+
+$ check_urdf <scratch>/minimal-run/vehicle.urdf
+robot name is: pr06_chassis_and_lidar
+---------- Successfully Parsed XML ---------------
+root Link: base_link has 1 child(ren)
+    child(1):  lidar_link
+[exit 0]
+
+$ ros2 node list --no-daemon --spin-time 2
+
+[exit 0]
+
+$ ros2 launch course_description description.launch.py rviz:=false model:=<scratch>/minimal.urdf
+Фоновый процесс, лог state-publisher.log
+
+$ ros2 node list --no-daemon --spin-time 2
+/robot_state_publisher
+[exit 0]
+
+$ timeout --signal=INT 6s ros2 run tf2_ros tf2_echo base_link lidar_link
+At time 0.0
+- Translation: [0.280, 0.000, 0.380]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.280
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.380
+  0.000  0.000  0.000  1.000
+At time 0.0
+- Translation: [0.280, 0.000, 0.380]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.280
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.380
+  0.000  0.000  0.000  1.000
+At time 0.0
+- Translation: [0.280, 0.000, 0.380]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.280
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.380
+  0.000  0.000  0.000  1.000
+At time 0.0
+- Translation: [0.280, 0.000, 0.380]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.280
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.380
+  0.000  0.000  0.000  1.000
+[ros2run]: Received signal:  Interrupt
+[INFO] [1795760913.780635544] [tf2_echo]: Waiting for transform base_link ->  lidar_link: Invalid frame ID "base_link" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1795760919.389596699] [rclcpp]: signal_handler(signum=2)
+[INFO] [1795760919.390392149] [rclcpp]: signal_handler(signum=2)
+[exit 124]
+
+state-publisher: exit=0 после остановки
+
+$ ros2 node list --no-daemon --spin-time 2
+
+[exit 0]

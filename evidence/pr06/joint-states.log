@@ -1,0 +1,294 @@
+publisher: beginning loop
+publishing #1: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760944, nanosec=787833076), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #2: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760944, nanosec=888450526), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #3: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760944, nanosec=988329102), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #4: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=88323312), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #5: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=188325399), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #6: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=288311371), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #7: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=388314158), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #8: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=488347396), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #9: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=588304045), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #10: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=688322922), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #11: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=788354523), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #12: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=888324087), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #13: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760945, nanosec=988314800), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #14: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=88303746), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #15: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=188326895), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #16: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=288348383), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #17: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=388363088), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #18: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=488336537), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #19: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=588621483), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #20: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=688313389), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #21: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=788407793), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #22: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=888395272), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #23: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760946, nanosec=988401802), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #24: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=88299933), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #25: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=188304911), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #26: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=288321413), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #27: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=388322479), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #28: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=488279539), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #29: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=588280071), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #30: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=689587619), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #31: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=788299427), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #32: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=888363478), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #33: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760947, nanosec=988330278), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #34: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=94606598), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #35: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=188363156), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #36: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=288309947), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #37: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=388290640), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #38: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=488268849), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #39: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=588319086), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #40: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=688644723), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #41: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=788302969), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #42: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=888314904), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #43: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760948, nanosec=988319565), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #44: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=88361045), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #45: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=188679342), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #46: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=288326204), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #47: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=388567431), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #48: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=488310169), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #49: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=588333190), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #50: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=688347980), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #51: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=788310957), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #52: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=888426368), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #53: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760949, nanosec=988373630), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #54: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=88346444), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #55: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=188332478), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #56: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=288326464), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #57: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=388317175), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #58: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=488315211), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #59: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=588590486), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #60: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=688332483), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #61: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=788316666), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #62: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=888447405), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #63: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760950, nanosec=988327159), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #64: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=88305287), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #65: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=188324623), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #66: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=288316795), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #67: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=388333635), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #68: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=488337000), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #69: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=588334121), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #70: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=688419900), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #71: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=788315477), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #72: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=888313823), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #73: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760951, nanosec=988308329), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #74: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=88329761), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #75: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=188332347), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #76: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=288334705), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #77: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=388326681), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #78: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=488321081), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #79: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=588657640), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #80: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=688549264), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #81: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=788345705), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #82: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=888333991), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #83: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760952, nanosec=988307909), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #84: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=88306196), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #85: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=188284886), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #86: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=288297785), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #87: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=388305083), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #88: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=488280026), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #89: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=588318652), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #90: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=688329201), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #91: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=788303269), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #92: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=888330957), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #93: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760953, nanosec=988336413), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #94: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=88336319), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #95: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=188331455), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #96: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=288650078), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #97: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=388311696), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #98: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=488326955), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #99: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=588623967), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #100: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=688344888), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #101: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=788679412), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #102: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=888344514), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #103: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760954, nanosec=988359513), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #104: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=88336142), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #105: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=188313265), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #106: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=288396608), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #107: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=388336653), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #108: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=488331122), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #109: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=588532815), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #110: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=688328387), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #111: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=788307958), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #112: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=888349667), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #113: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760955, nanosec=988466953), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #114: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=88421629), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #115: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=188413582), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #116: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=288463737), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #117: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=388516952), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #118: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=488322737), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #119: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=588321429), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #120: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=688479035), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #121: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=788309969), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #122: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=888450068), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #123: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760956, nanosec=988482084), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #124: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=88494410), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #125: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=188481487), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #126: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=288315870), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #127: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=388402365), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #128: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=488303962), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #129: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=588327462), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #130: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=688372057), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #131: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=788403085), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #132: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=888436766), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #133: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760957, nanosec=988445253), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #134: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=88303660), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #135: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=188327661), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #136: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=288318320), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #137: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=388312526), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #138: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=488332509), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #139: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=588586718), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #140: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=688397870), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #141: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=788311343), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #142: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=888404006), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #143: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760958, nanosec=988322154), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #144: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760959, nanosec=88288819), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #145: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760959, nanosec=188307609), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #146: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760959, nanosec=288315925), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])
+
+publishing #147: sensor_msgs.msg.JointState(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1795760959, nanosec=388307750), frame_id=''), name=['front_left_steering_joint', 'front_right_steering_joint', 'front_left_wheel_joint', 'front_right_wheel_joint', 'rear_left_wheel_joint', 'rear_right_wheel_joint'], position=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0], velocity=[], effort=[])

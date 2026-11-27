@@ -1,0 +1,237 @@
+$ ros2 topic info /tf_static --verbose --no-daemon --spin-time 2
+Type: tf2_msgs/msg/TFMessage
+
+Publisher count: 1
+
+Node name: robot_state_publisher
+Node namespace: /
+Topic type: tf2_msgs/msg/TFMessage
+Topic type hash: RIHS01_e369d0f05a23ae52508854b66f6aa0437f3449d652e8cbf22d5abe85d020f087
+Endpoint type: PUBLISHER
+GID: 01.0f.c0.cd.c4.49.ec.4c.00.00.00.00.00.00.16.03
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): KEEP_LAST (1)
+  Durability: TRANSIENT_LOCAL
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0
+[exit 0]
+
+$ timeout 4s ros2 topic echo /tf_static tf2_msgs/msg/TFMessage --once --no-daemon --spin-time 0.1 --qos-reliability reliable --qos-durability transient_local
+transforms:
+- header:
+    stamp:
+      sec: 1795761070
+      nanosec: 448298714
+    frame_id: base_footprint
+  child_frame_id: base_link
+  transform:
+    translation:
+      x: 0.0
+      y: 0.0
+      z: 0.12
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761070
+      nanosec: 448298714
+    frame_id: base_link
+  child_frame_id: camera_link
+  transform:
+    translation:
+      x: 0.28
+      y: 0.0
+      z: 0.38
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761070
+      nanosec: 448298714
+    frame_id: camera_link
+  child_frame_id: camera_optical_frame
+  transform:
+    translation:
+      x: 0.08
+      y: 0.0
+      z: 0.0
+    rotation:
+      x: 0.5
+      y: -0.4999999999999999
+      z: 0.5
+      w: -0.5000000000000001
+- header:
+    stamp:
+      sec: 1795761070
+      nanosec: 448298714
+    frame_id: base_link
+  child_frame_id: imu_link
+  transform:
+    translation:
+      x: 0.28
+      y: 0.0
+      z: 0.38
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761070
+      nanosec: 448298714
+    frame_id: camera_link
+  child_frame_id: lidar_link
+  transform:
+    translation:
+      x: 0.28
+      y: 0.0
+      z: 0.38
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+---
+[exit 0]
+
+$ timeout 4s ros2 topic echo /tf_static tf2_msgs/msg/TFMessage --once --no-daemon --spin-time 0.1 --qos-reliability reliable --qos-durability volatile
+
+[exit 124]
+
+/tf_static хранит последнее сообщение с жёсткими связями. Поздний подписчик с TRANSIENT_LOCAL получает его, а VOLATILE ждёт новых сообщений. /tf передаёт обновления подвижных связей с VOLATILE.
+
+$ ros2 topic info /tf --verbose --no-daemon --spin-time 2
+Type: tf2_msgs/msg/TFMessage
+
+Publisher count: 1
+
+Node name: robot_state_publisher
+Node namespace: /
+Topic type: tf2_msgs/msg/TFMessage
+Topic type hash: RIHS01_e369d0f05a23ae52508854b66f6aa0437f3449d652e8cbf22d5abe85d020f087
+Endpoint type: PUBLISHER
+GID: 01.0f.c0.cd.c4.49.ec.4c.00.00.00.00.00.00.15.03
+QoS profile:
+  Reliability: RELIABLE
+  History (Depth): KEEP_LAST (100)
+  Durability: VOLATILE
+  Lifespan: Infinite
+  Deadline: Infinite
+  Liveliness: AUTOMATIC
+  Liveliness lease duration: Infinite
+
+Subscription count: 0
+[exit 0]
+
+$ timeout 7s ros2 topic echo /tf tf2_msgs/msg/TFMessage --once --no-daemon --spin-time 0.1 --qos-reliability reliable --qos-durability volatile
+transforms:
+- header:
+    stamp:
+      sec: 1795761092
+      nanosec: 98926689
+    frame_id: base_link
+  child_frame_id: front_left_knuckle
+  transform:
+    translation:
+      x: 0.4
+      y: 0.31
+      z: 0.0
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761092
+      nanosec: 98926689
+    frame_id: front_left_knuckle
+  child_frame_id: front_left_wheel
+  transform:
+    translation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761092
+      nanosec: 98926689
+    frame_id: base_link
+  child_frame_id: front_right_knuckle
+  transform:
+    translation:
+      x: 0.4
+      y: -0.31
+      z: 0.0
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761092
+      nanosec: 98926689
+    frame_id: front_right_knuckle
+  child_frame_id: front_right_wheel
+  transform:
+    translation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761092
+      nanosec: 98926689
+    frame_id: base_link
+  child_frame_id: rear_left_wheel
+  transform:
+    translation:
+      x: -0.4
+      y: 0.31
+      z: 0.0
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- header:
+    stamp:
+      sec: 1795761092
+      nanosec: 98926689
+    frame_id: base_link
+  child_frame_id: rear_right_wheel
+  transform:
+    translation:
+      x: -0.4
+      y: -0.31
+      z: 0.0
+    rotation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+---
+[exit 0]

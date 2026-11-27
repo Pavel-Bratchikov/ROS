@@ -1,0 +1,6 @@
+[ERROR] [1795760953.736387249] [rviz2]: Could not open file: <home>/.rviz2/persistent_settings
+[INFO] [1795760955.057443297] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1795760955.057477894] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[INFO] [1795760955.214528397] [rviz2]: Stereo is NOT SUPPORTED
+[ros2run]: Received signal:  Interrupt
+[INFO] [1795760959.265480075] [rclcpp]: signal_handler(signum=2)

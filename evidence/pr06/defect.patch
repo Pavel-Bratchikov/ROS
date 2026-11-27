@@ -1,0 +1,9 @@
+diff --git a/src/course_description/urdf/vehicle.urdf.xacro b/src/course_description/urdf/vehicle.urdf.xacro
+index d7128ae..29c4a68 100644
+--- a/src/course_description/urdf/vehicle.urdf.xacro
++++ b/src/course_description/urdf/vehicle.urdf.xacro
+@@ -117,3 +117,3 @@
+   <xacro:attach name="camera_joint" upstream="base_link" downstream="camera_link" xyz="${sensor_mount}"/>
+-  <xacro:attach name="lidar_joint" upstream="base_link" downstream="lidar_link" xyz="${sensor_mount}"/>
++  <xacro:attach name="lidar_joint" upstream="camera_link" downstream="lidar_link" xyz="${sensor_mount}"/>
+   <xacro:attach name="imu_joint" upstream="base_link" downstream="imu_link" xyz="${sensor_mount}"/>

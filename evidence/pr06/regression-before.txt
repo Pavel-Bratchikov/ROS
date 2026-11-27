@@ -1,0 +1,23 @@
+$ PR06_MODEL=<defect-workspace>/src/course_description/urdf/vehicle.urdf.xacro python3 -m pytest src/course_description/test/test_model.py::test_lidar_parent -q
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_lidar_parent _______________________________
+
+robot = <Element 'robot' at 0x7a933d525350>
+
+    def test_lidar_parent(robot):
+        joint = robot.find("joint[@name='lidar_joint']")
+        assert joint.get('type') == 'fixed'
+        assert joint.find('child').get('link') == 'lidar_link'
+>       assert joint.find('parent').get('link') == 'base_link'
+E       AssertionError: assert 'camera_link' == 'base_link'
+E
+E         - base_link
+E         + camera_link
+
+src/course_description/test/test_model.py:71: AssertionError
+=========================== short test summary info ============================
+FAILED src/course_description/test/test_model.py::test_lidar_parent - Asserti...
+1 failed in 0.16s
+
+[exit 1]

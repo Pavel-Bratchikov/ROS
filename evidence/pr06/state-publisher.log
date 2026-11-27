@@ -1,0 +1,8 @@
+[INFO] [launch]: All log files can be found below <ros-logs>
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [robot_state_publisher-1]: process started with pid [18231]
+[robot_state_publisher-1] [INFO] [1795760926.379401097] [robot_state_publisher]: Robot initialized
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [robot_state_publisher-1]: sending signal 'SIGINT' to process[robot_state_publisher-1]
+[robot_state_publisher-1] [INFO] [1795760959.656767181] [rclcpp]: signal_handler(signum=2)
+[INFO] [robot_state_publisher-1]: process has finished cleanly [pid 18231]

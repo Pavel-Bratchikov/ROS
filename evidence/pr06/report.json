@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "practice_id": "PR06",
+  "commit": "2889a68403cc5b31603fcdc32aeaa3979de2175b",
+  "course_kit": {
+    "version": "v1-w12",
+    "archive_sha256": "525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a"
+  },
+  "commands": [
+    "source /opt/ros/lyrical/setup.bash",
+    "colcon build --symlink-install",
+    "source install/setup.bash",
+    "python3 -m pytest src/course_description/test",
+    "colcon test --packages-select course_description --event-handlers console_direct+ --return-code-on-test-failure",
+    "colcon test --packages-select patrol course_bringup course_description --event-handlers console_direct+ --return-code-on-test-failure",
+    "colcon test-result --verbose",
+    "ROS_DOMAIN_ID=203 python3 tools/record_pr06.py --model <scratch>/minimal.urdf --minimal --output <scratch>/minimal-run",
+    "ROS_DOMAIN_ID=201 xvfb-run -a python3 tools/record_pr06.py --output <scratch>/fixed --rviz",
+    "ROS_DOMAIN_ID=202 python3 tools/record_pr06.py --model <defect-workspace>/src/course_description/urdf/vehicle.urdf.xacro --expect-broken --output <scratch>/defect-run",
+    "PR06_MODEL=<defect-workspace>/src/course_description/urdf/vehicle.urdf.xacro python3 -m pytest src/course_description/test/test_model.py::test_lidar_parent -q",
+    "python3 -m pytest src/course_description/test/test_model.py::test_lidar_parent -q",
+    "xacro <workspace>/src/course_description/urdf/vehicle.urdf.xacro -o <scratch>/fixed/vehicle.urdf",
+    "check_urdf <scratch>/fixed/vehicle.urdf",
+    "ros2 node list --no-daemon --spin-time 2",
+    "ros2 launch course_description description.launch.py rviz:=false model:=<workspace>/src/course_description/urdf/vehicle.urdf.xacro",
+    "timeout --signal=INT 6s ros2 run tf2_ros tf2_echo base_link lidar_link",
+    "ros2 topic pub -r 10 /joint_states sensor_msgs/msg/JointState '{header: auto, name: [front_left_steering_joint, front_right_steering_joint, front_left_wheel_joint,",
+    "ros2 run tf2_tools view_frames --wait-time 4 --output <scratch>/fixed/frames",
+    "ros2 run rviz2 rviz2 -d <workspace>/install/course_description/share/course_description/rviz/vehicle.rviz --display-title-format PR06-RViz",
+    "xwininfo -name PR06-RViz",
+    "ros2 topic info /tf_static --verbose --no-daemon --spin-time 2",
+    "timeout 4s ros2 topic echo /tf_static tf2_msgs/msg/TFMessage --once --no-daemon --spin-time 0.1 --qos-reliability reliable --qos-durability transient_local",
+    "timeout 4s ros2 topic echo /tf_static tf2_msgs/msg/TFMessage --once --no-daemon --spin-time 0.1 --qos-reliability reliable --qos-durability volatile",
+    "ros2 topic info /tf --verbose --no-daemon --spin-time 2",
+    "timeout 7s ros2 topic echo /tf tf2_msgs/msg/TFMessage --once --no-daemon --spin-time 0.1 --qos-reliability reliable --qos-durability volatile"
+  ],
+  "tests": [
+    {
+      "name": "minimal_body_lidar",
+      "status": "passed",
+      "details": "Минимальный URDF принят и tf2_echo подтверждает смещение лидара (0.28, 0, 0.38)."
+    },
+    {
+      "name": "model_geometry",
+      "status": "passed",
+      "details": "Есть 12 звеньев и 11 связей. 24 теста модели проверяют параметры, геометрию, оси и инерцию."
+    },
+    {
+      "name": "workspace_tests",
+      "status": "passed",
+      "details": "Сборка четырёх пакетов и 72 теста прошли без ошибок."
+    },
+    {
+      "name": "late_tf_static",
+      "status": "passed",
+      "details": "Единственный RELIABLE/TRANSIENT_LOCAL издатель. Позднее чтение дало пять связей с кодом 0, volatile завершился кодом 124."
+    },
+    {
+      "name": "dynamic_tree",
+      "status": "passed",
+      "details": "После подачи joint_states на /tf есть шесть подвижных связей. view_frames подтвердил полное дерево."
+    },
+    {
+      "name": "rviz_model",
+      "status": "passed",
+      "details": "На виртуальном дисплее RViz показал модель при base_link, Global Status и RobotModel Ok."
+    },
+    {
+      "name": "defect_and_parent_regression",
+      "status": "passed",
+      "details": "check_urdf принимает обе структуры. При ошибочном parent tf2_echo показывает (0.56, 0, 0.76). Один и тот же тест падает в копии и проходит после восстановления."
+    }
+  ],
+  "model": {
+    "wheelbase_m": 0.8,
+    "track_m": 0.62,
+    "wheel_radius_m": 0.12,
+    "links": 12,
+    "joints": 11,
+    "fixed_joints": 5,
+    "movable_joints": 6,
+    "root_frame": "base_footprint",
+    "rviz_fixed_frame": "base_link",
+    "transform_owner": "/robot_state_publisher"
+  },
+  "defect": {
+    "branch": "pr06-defect",
+    "commit": "4cfbc3a5257f059c6ca8968cee698e3cce5b81e2",
+    "reproduction_patch": "evidence/pr06/defect.patch",
+    "reproducer": "Изменить parent lidar_joint на camera_link, оставив то же смещение. tf2_echo base_link lidar_link покажет (0.56, 0, 0.76), test_lidar_parent упадёт.",
+    "root_cause": "Одинаковое локальное смещение теперь применяется относительно камеры. Композиция преобразований удваивает X и Z при структурно допустимом дереве.",
+    "proof_after": "После возврата parent к base_link тест проходит и tf2_echo показывает (0.28, 0, 0.38)."
+  },
+  "claims": {
+    "public_tests_passed": true,
+    "defect_reproduced": true,
+    "defect_fixed": true
+  },
+  "time": {
+    "contact_academic_hours": 2,
+    "self_study_hours": 2,
+    "basis": "План из условия ПР06."
+  },
+  "ai_used": true
+}

@@ -1,0 +1,98 @@
+$ xacro <defect-workspace>/src/course_description/urdf/vehicle.urdf.xacro -o <scratch>/defect-run/vehicle.urdf
+
+[exit 0]
+
+$ check_urdf <scratch>/defect-run/vehicle.urdf
+robot name is: course_ackermann
+---------- Successfully Parsed XML ---------------
+root Link: base_footprint has 1 child(ren)
+    child(1):  base_link
+        child(1):  camera_link
+            child(1):  camera_optical_frame
+            child(2):  lidar_link
+        child(2):  front_left_knuckle
+            child(1):  front_left_wheel
+        child(3):  front_right_knuckle
+            child(1):  front_right_wheel
+        child(4):  imu_link
+        child(5):  rear_left_wheel
+        child(6):  rear_right_wheel
+[exit 0]
+
+$ ros2 node list --no-daemon --spin-time 2
+
+[exit 0]
+
+$ ros2 launch course_description description.launch.py rviz:=false model:=<defect-workspace>/src/course_description/urdf/vehicle.urdf.xacro
+Фоновый процесс, лог state-publisher.log
+
+$ ros2 node list --no-daemon --spin-time 2
+/robot_state_publisher
+[exit 0]
+
+$ timeout --signal=INT 6s ros2 run tf2_ros tf2_echo base_link lidar_link
+At time 0.0
+- Translation: [0.560, 0.000, 0.760]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.560
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.760
+  0.000  0.000  0.000  1.000
+At time 0.0
+- Translation: [0.560, 0.000, 0.760]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.560
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.760
+  0.000  0.000  0.000  1.000
+At time 0.0
+- Translation: [0.560, 0.000, 0.760]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.560
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.760
+  0.000  0.000  0.000  1.000
+At time 0.0
+- Translation: [0.560, 0.000, 0.760]
+- Rotation: in Quaternion (xyzw) [0.000, 0.000, 0.000, 1.000]
+- Rotation: in RPY (radian) [0.000, -0.000, 0.000]
+- Rotation: in RPY (degree) [0.000, -0.000, 0.000]
+- Matrix:
+  1.000  0.000  0.000  0.560
+  0.000  1.000  0.000  0.000
+  0.000  0.000  1.000  0.760
+  0.000  0.000  0.000  1.000
+[ros2run]: Received signal:  Interrupt
+[INFO] [1795761072.946098375] [tf2_echo]: Waiting for transform base_link ->  lidar_link: Invalid frame ID "base_link" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1795761078.558997985] [rclcpp]: signal_handler(signum=2)
+[INFO] [1795761078.559974141] [rclcpp]: signal_handler(signum=2)
+[exit 124]
+
+$ ros2 topic pub -r 10 /joint_states sensor_msgs/msg/JointState '{header: auto, name: [front_left_steering_joint, front_right_steering_joint, front_left_wheel_joint,
+    front_right_wheel_joint, rear_left_wheel_joint, rear_right_wheel_joint], position: [
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}'
+Фоновый процесс, лог joint-states.log
+
+$ ros2 run tf2_tools view_frames --wait-time 4 --output <scratch>/defect-run/frames
+[INFO] [1795761093.656818209] [view_frames]: Listening to tf data for 4.0 seconds...
+[INFO] [1795761097.700256503] [view_frames]: Generating graph...
+[INFO] [1795761097.703699488] [view_frames]: Result:tf2_msgs.srv.FrameGraph_Response(frame_yaml="front_left_knuckle: \n  parent: 'base_link'\n  broadcaster: 'default_authority'\n  rate: 10.250\n  most_recent_transform: 1795761097.698919\n  oldest_transform: 1795761093.698905\n  buffer_length: 4.000\nbase_link: \n  parent: 'base_footprint'\n  broadcaster: 'default_authority'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\nfront_left_wheel: \n  parent: 'front_left_knuckle'\n  broadcaster: 'default_authority'\n  rate: 10.250\n  most_recent_transform: 1795761097.698919\n  oldest_transform: 1795761093.698905\n  buffer_length: 4.000\nfront_right_knuckle: \n  parent: 'base_link'\n  broadcaster: 'default_authority'\n  rate: 10.250\n  most_recent_transform: 1795761097.698919\n  oldest_transform: 1795761093.698905\n  buffer_length: 4.000\nfront_right_wheel: \n  parent: 'front_right_knuckle'\n  broadcaster: 'default_authority'\n  rate: 10.250\n  most_recent_transform: 1795761097.698919\n  oldest_transform: 1795761093.698905\n  buffer_length: 4.000\nrear_left_wheel: \n  parent: 'base_link'\n  broadcaster: 'default_authority'\n  rate: 10.250\n  most_recent_transform: 1795761097.698919\n  oldest_transform: 1795761093.698905\n  buffer_length: 4.000\nrear_right_wheel: \n  parent: 'base_link'\n  broadcaster: 'default_authority'\n  rate: 10.250\n  most_recent_transform: 1795761097.698919\n  oldest_transform: 1795761093.698905\n  buffer_length: 4.000\ncamera_link: \n  parent: 'base_link'\n  broadcaster: 'default_authority'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ncamera_optical_frame: \n  parent: 'camera_link'\n  broadcaster: 'default_authority'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\nimu_link: \n  parent: 'base_link'\n  broadcaster: 'default_authority'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\nlidar_link: \n  parent: 'camera_link'\n  broadcaster: 'default_authority'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\n")
+[INFO] [1795761097.718806624] [view_frames]: Exporting graph in <scratch>/defect-run/frames.pdf file...
+[exit 0]
+
+joint-states: exit=2 после остановки
+
+state-publisher: exit=0 после остановки
+
+$ ros2 node list --no-daemon --spin-time 2
+
+[exit 0]

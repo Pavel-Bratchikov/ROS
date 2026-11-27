@@ -6,8 +6,8 @@
 
 - **Среда** Codex CLI
 
-- **Компоненты** course_bringup, launch, QoS, MCAP, CI
+- **Компоненты** course_description, Xacro, launch, RViz, tf2, и CI
 
-- **Характер помощи** реализация, диагностика, проверка live/replay и оформление результатов
+- **Характер помощи** проверка геометрии и QoS, воспроизведение неверного parent и оформление отчёта
 
-- **Как проверено** сборка трёх пакетов, 59 функциональных тестов, colcon test, timeout reliable и best_effort на одном MCAP, проверка SHA-256 записи и официальный checker
+- **Как проверено** 24 теста модели, полный colcon test, check_urdf, реальные tf2_echo и view_frames,снимок RViz, и официальный checker
