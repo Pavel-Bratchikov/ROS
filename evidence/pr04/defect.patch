@@ -1,0 +1,8 @@
+diff --git a/src/patrol/patrol/parameters.py b/src/patrol/patrol/parameters.py
+index 7bc9706..ebb4ded 100644
+--- a/src/patrol/patrol/parameters.py
++++ b/src/patrol/patrol/parameters.py
+@@ -15,3 +15,2 @@ LIMITS = {
+     'turn_rate': (-1.0, 1.0),
+-    'publish_hz': (1.0, 30.0),
+ }

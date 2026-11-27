@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "practice_id": "PR04",
+  "commit": "bc6ed7c3ac713e79aea60522e271a09767e2b32f",
+  "course_kit": {
+    "version": "v1-w12",
+    "archive_sha256": "525e86f818ffed166e7f7b67cc87fdd3f3ea840d13aa90e76bde9fda0f3c9c5a"
+  },
+  "commands": [
+    "source /opt/ros/lyrical/setup.bash",
+    "colcon build --symlink-install --packages-select turtle_bringup patrol",
+    "source install/setup.bash",
+    "python3 -m pytest src/patrol/test",
+    "colcon test --packages-select patrol --event-handlers console_direct+ --return-code-on-test-failure",
+    "colcon test-result --verbose",
+    "ROS_DOMAIN_ID=184 python3 tools/record_pr04.py --output <scratch>/fixed/fixed-commands.md",
+    "ROS_DOMAIN_ID=185 python3 tools/record_pr04.py --expect-broken --output <scratch>/broken/broken-commands.md",
+    "ros2 param get /patrol publish_hz",
+    "ros2 param set /patrol publish_hz 5.0",
+    "ros2 param set /patrol publish_hz 0.0",
+    "ros2 param set /patrol publish_hz -1.0",
+    "ros2 param set /patrol publish_hz .nan",
+    "timeout --signal=INT 7s ros2 topic hz /turtle1/cmd_vel --window 25",
+    "ros2 param set /patrol linear_speed 0.8",
+    "ros2 param set /patrol turn_rate -0.5",
+    "timeout 8s ros2 topic echo /turtle1/cmd_vel geometry_msgs/msg/Twist --once",
+    "ros2 service call /clear std_srvs/srv/Empty '{}'",
+    "ros2 action list -t",
+    "python3 -m pytest 'src/patrol/test/test_node_parameters.py::test_rejected_frequency_preserves_timer[0.0]' -q"
+  ],
+  "tests": [
+    {
+      "name": "package_build_and_colcon_tests",
+      "status": "passed",
+      "details": "Оба пакета собраны. 38 регрессионных, чистых и ROS-тестов, 0 ошибок."
+    },
+    {
+      "name": "atomic_settings_and_timer",
+      "status": "passed",
+      "details": "Таймер меняется с 100 на 200 мс, прежний отменяется. Невалидный набор и veto не меняют активный таймер."
+    },
+    {
+      "name": "defect_regression",
+      "status": "passed",
+      "details": "Тот же тест падает с ZeroDivisionError в pr04-defect и проходит в рабочей версии."
+    },
+    {
+      "name": "live_parameter_stream",
+      "status": "passed",
+      "details": "Замеры 10.000 → 5.000 → 4.999 Гц, отклонены 0.0, −1.0 и NaN."
+    },
+    {
+      "name": "live_twist",
+      "status": "passed",
+      "details": "После смены параметров Twist содержит linear.x = 0.8, angular.z = -0.5."
+    },
+    {
+      "name": "service_and_action",
+      "status": "passed",
+      "details": "/clear ответил, в списке действий найден /turtle1/rotate_absolute [turtlesim_msgs/action/RotateAbsolute]."
+    }
+  ],
+  "defect": {
+    "branch": "pr04-defect",
+    "commit": "9606ca4a5847ef2e3347303cf0390eec3c1a822d",
+    "reproduction_patch": "evidence/pr04/defect.patch",
+    "reproducer": "Исключить диапазон publish_hz из проверки и выполнить ros2 param set /patrol publish_hz 0.0 после принятия 5.0. Patrol завершается с ZeroDivisionError.",
+    "root_cause": "Без проверки диапазона значение 0.0 принимается, и постобработчик делит 1.0 на 0.0 при создании периода.",
+    "proof_after": "Ноль отклонён, ros2 param get возвращает 5.0, измерение показывает 4.999 Гц, а тот же тест подтверждает сохранение прежнего таймера."
+  },
+  "claims": {
+    "public_tests_passed": true,
+    "defect_reproduced": true,
+    "defect_fixed": true
+  },
+  "time": {
+    "contact_academic_hours": 2,
+    "self_study_hours": 2,
+    "basis": "План из условия ПР04."
+  },
+  "ai_used": true
+}
